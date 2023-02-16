@@ -15,23 +15,6 @@
   padding: 0;
 }
 
-/* Effect classes */
-.error {
-  border: 1px solid red;
-  background-color: var(--red-subtle);
-}
-
-.hover {
-  background-color: var(--accent-subtle);
-}
-
-.focus {
-  color: var(--accent);
-  border-color: var(--accent);
-  background-color: white;
-  font-weight: 600;
-}
-
 form {
   width: fit-content;
   margin-top: 24px;
@@ -86,7 +69,12 @@ input::placeholder {
   color: red;
 }
 
-.form-row > a {
+.form-links {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
@@ -102,4 +90,47 @@ input::placeholder {
   text-decoration: none;
   font-weight: 600;
   font-size: small;
+}
+
+/* Effect classes */
+.error {
+  border: 1px solid red;
+  background-color: var(--red-subtle);
+}
+
+.hover {
+  background-color: var(--accent-subtle);
+  cursor: pointer;
+}
+
+.hover--link {
+  color: black;
+  cursor: pointer;
+}
+
+.hover--button {
+  color: black;
+}
+
+.focus {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: white;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 578px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-links {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  #submit {
+    margin-top: 24px;
+  }
 }

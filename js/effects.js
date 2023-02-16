@@ -6,7 +6,7 @@
  * @param {string} removeOn the css class is removed on this type of event
  * @param {Array<keyof HTMLElementTagNameMap>} targets
  */
-const addTiedEventListeners = (
+export const addTiedEventListeners = (
   eventTarget,
   className,
   addOn,
@@ -28,28 +28,42 @@ const addTiedEventListeners = (
   });
 };
 
+export const addErrorEffect = (eventTarget) => {
+  const target = document.querySelector(eventTarget);
+  target.classList.add('error');
+
+  if (!target.nextSibling.tagName)
+    target.insertAdjacentHTML(
+      'afterend',
+      '<p class="form-input__error-message">This field is required</p>'
+    );
+};
+
+export const removeErrorEffect = (eventTarget) => {
+  const target = document.querySelector(eventTarget);
+  target.classList.add('error');
+
+  if (target.nextSibling.tagName) target.nextElementSibling.remove();
+  target.classList.remove('error');
+};
+
 /**
+ * If the validationPredicate returns false the error visualisation is shown
  * @param {keyof HTMLElementTagNameMap} eventTarget adds the event listener to this element
  * @param {(value: any) => boolean} validationPredicate used to validate the element data and determine whether to display the error
  */
-export const addValidationEffect = (eventTarget, validationPredicate) => {
+export const addImmediateValidationEffect = (
+  eventTarget,
+  validationPredicate
+) => {
   const _eventTarget = document.querySelector(eventTarget);
 
   _eventTarget.addEventListener('blur', (e) => {
     if (!validationPredicate(e.currentTarget.value)) {
-      _eventTarget.classList.add('error');
-
-      if (!_eventTarget.nextSibling.tagName)
-        _eventTarget.insertAdjacentHTML(
-          'afterend',
-          '<p class="form-input__error-message">This field is required</p>'
-        );
+      addErrorEffect(eventTarget);
       return;
     }
-
-    if (_eventTarget.nextSibling.tagName)
-      _eventTarget.nextElementSibling.remove();
-    _eventTarget.classList.remove('error');
+    removeErrorEffect(eventTarget);
   });
 };
 
@@ -59,4 +73,17 @@ export const addHoverEffect = (eventTarget) => {
 
 export const addFocusEffect = (eventTarget, targets) => {
   addTiedEventListeners(eventTarget, 'focus', 'focus', 'blur', targets);
+};
+
+export const addLinkHoverEffect = (eventTarget) => {
+  addTiedEventListeners(eventTarget, 'hover--link', 'mouseover', 'mouseleave');
+};
+
+export const addButtonHoverEffect = (eventTarget) => {
+  addTiedEventListeners(
+    eventTarget,
+    'hover--button',
+    'mouseover',
+    'mouseleave'
+  );
 };
