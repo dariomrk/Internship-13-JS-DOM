@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>JS DOM Manipulation</title>
+  </head>
+  <body>
+    <form>
+      <h1>Account Details</h1>
+      <div class="form-row">
+        <div class="form-input">
+          <label for="user-first-name">First Name</label>
+          <input
+            type="text"
+            name="user-first-name"
+            id="user-first-name"
+            placeholder="User"
+          />
+          <!-- example error message -->
+          <!-- <p class="form-input__error-message">This field is required</p> -->
+        </div>
+        <div class="form-input">
+          <label for="user-last-name">Last Name</label>
+          <input
+            type="text"
+            name="user-last-name"
+            id="user-last-name"
+            placeholder="Example"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-input">
+          <label for="teach-level">What level do you primarily teach?</label>
+          <select name="teach-level" id="teach-level">
+            <option value="" disabled selected>
+              Select one of the options...
+            </option>
+            <option value="elementary-school">Elementary School</option>
+            <option value="middle-school">Middle School</option>
+            <option value="high-school">High School</option>
+          </select>
+        </div>
+        <div class="form-input">
+          <label for="teach-duration">How long have you been teaching?</label>
+          <select name="teach-duration" id="teach-duration">
+            <option value="" disabled selected>
+              Select one of the options ...
+            </option>
+            <option value="1-5">1-5 Years</option>
+            <option value="5-10">5-10 Years</option>
+            <option value="10-20">10-20 Years</option>
+            <option value="20+">20+ Years</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <a href="#">Change password</a>
+        <input
+          class="form-submit"
+          id="submit"
+          type="submit"
+          value="Save changes"
+        />
+      </div>
+    </form>
+  </body>
+  <script type="module" src="./js/store.js"></script>
+  <script type="module" src="./js/effects.js"></script>
+  <script type="module" src="./js/validation.js"></script>
+  <script type="module" src="./js/script.js"></script>
+</html>

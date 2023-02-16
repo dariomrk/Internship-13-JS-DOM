@@ -1,0 +1,105 @@
+@font-face {
+  font-family: 'montserrat';
+  src: url('../fonts/montserrat.ttf');
+}
+
+:root {
+  --accent-subtle: #00bfff10;
+  --accent: #1e90ff;
+  --red-subtle: #ff00000e;
+}
+
+* {
+  font-family: 'montserrat';
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  width: fit-content;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 256px;
+  height: 72px;
+}
+
+form > h1 {
+  font-weight: 700;
+  font-size: larger;
+}
+
+form label {
+  font-weight: 600;
+  font-size: small;
+}
+
+input,
+select {
+  outline: none;
+  font-weight: 400;
+  font-size: small;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid lightslategrey;
+}
+
+input::placeholder {
+  width: 100%;
+  height: 100%;
+  color: gray;
+}
+
+.form-input__error-message {
+  font-size: x-small;
+  color: red;
+}
+
+.form-row > a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: small;
+}
+
+.form-submit {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: small;
+}
+
+/* Effect classes */
+.hover {
+  background-color: var(--accent-subtle);
+}
+
+.selected {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: white;
+  font-weight: 600;
+}
+
+.error {
+  border-color: red;
+  background-color: var(--red-subtle);
+}
