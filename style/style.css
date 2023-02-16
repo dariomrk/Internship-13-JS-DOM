@@ -38,7 +38,7 @@ form {
   height: 72px;
 }
 
-form > h1 {
+.form-heading {
   font-weight: 700;
   font-size: larger;
 }
@@ -48,8 +48,8 @@ form label {
   font-size: small;
 }
 
-input,
-select {
+.form-input > input,
+.form-input > select {
   outline: none;
   font-weight: 400;
   font-size: small;
