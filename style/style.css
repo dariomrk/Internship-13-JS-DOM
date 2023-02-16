@@ -6,13 +6,30 @@
 :root {
   --accent-subtle: #00bfff10;
   --accent: #1e90ff;
-  --red-subtle: #ff00000e;
+  --red-subtle: #ff000010;
 }
 
 * {
   font-family: 'montserrat';
   margin: 0;
   padding: 0;
+}
+
+/* Effect classes */
+.error {
+  border: 1px solid red;
+  background-color: var(--red-subtle);
+}
+
+.hover {
+  background-color: var(--accent-subtle);
+}
+
+.focus {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: white;
+  font-weight: 600;
 }
 
 form {
@@ -48,8 +65,8 @@ form label {
   font-size: small;
 }
 
-.form-input > input,
-.form-input > select {
+form input,
+form select {
   outline: none;
   font-weight: 400;
   font-size: small;
@@ -85,21 +102,4 @@ input::placeholder {
   text-decoration: none;
   font-weight: 600;
   font-size: small;
-}
-
-/* Effect classes */
-.hover {
-  background-color: var(--accent-subtle);
-}
-
-.selected {
-  color: var(--accent);
-  border-color: var(--accent);
-  background-color: white;
-  font-weight: 600;
-}
-
-.error {
-  border-color: red;
-  background-color: var(--red-subtle);
 }
